@@ -18,9 +18,11 @@
 - Mybatis reads information about db connectivity and Mapper interface from **mybatis-config.xml** file
 - Mybatis will create a class on the fly during the runtime that implements the Mapper interface then our application gets an instance of this class
 - The implementation class created by mybatis uses **JDBC** to connect to the underlying database
-  ![Java application mybatis operations](./images/mybatis-basics.drawio.svg)
+
+  ![Java application mybatis operations](../images/mybatis-basics.drawio.svg)
 
 ## Difference between MyBatis and ORM such as Hibernate, JPA ect..
+
 - No need to map class/fields to table/columns
 - Automatically detects column names and maps to fields of a class
 - Allow use of all Database functionalities such as
@@ -39,6 +41,24 @@
   - Default connectors for integrating with OSCache, Ehcache, Hazelcast and Memcached
   - Provides an API to plug other cache implementations
 
+## Setting up project with H2 Database for testing
+
+- copy qualified name of h2 jar package in maven dependencies
+- open terminal and run
+
+```bash
+java -jar qualified-name-of-h2-package
+```
+
+- After the H2 interface opens
+- Change Saved settings to: Generic H2 (Server)
+- Go to your computer user folder and create the mybatis-basics.mv.db
+- Then paste the following in the JDBC URL: on the H2 interface
+```
+jdbc:h2:tcp://localhost/~/mybatis-basics
+```
+- Test The connection and if works then connect
+- Use the following SQL tests and paste in the H2 SQL editor to test.
 - Just some SQL tests
 
 ```sql

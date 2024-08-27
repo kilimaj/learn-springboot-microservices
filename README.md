@@ -3,4 +3,4 @@
 ## Contents included
 
 - [Java Basics](#)
-- [MyBatis Basics](mybatis-basics.md)
+- [MyBatis Basics](./mybatis-basics/README.md)
