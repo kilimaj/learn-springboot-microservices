@@ -80,7 +80,8 @@ insert into customers (name, email, phone) values ('John', 'john@john.co', '1234
 ```sql
 select * from customers;
 ```
-
+**Alternatively**
+- You can run the script from a file made in the SQL editor paste
 ```
-runscript from ~/eclipse-workspace/mybatis-learn/customers.sql
+runscript from '~/eclipse-workspace/mybatis-basics/customers.sql'
 ```
