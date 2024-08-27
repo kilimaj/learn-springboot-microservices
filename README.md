@@ -2,5 +2,5 @@
 
 ## Contents included
 
-- [Java Basics](./learning-mybatis/README.md)
+- [Java Basics](mybatis-basics.md)
 - [MyBatis Basics](#)
