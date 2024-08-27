@@ -98,3 +98,78 @@ END
 
 !ENTRY org.eclipse.wildwebdeveloper.xml 2 0 2024-08-27 13:54:07.855
 !MESSAGE The given URI http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_1.xsd from org.eclipse.jst.standard.schemas could not be resolved for local access
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 13:58:39.354
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 13:58:39.363
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-08-27 13:58:40.010
+!MESSAGE Classpath changed for project: mybatis-basics
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-08-27 13:58:40.128
+!MESSAGE Classpath changed for project: mybatis-basics
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-08-27 13:58:40.352
+!MESSAGE Classpath changed for project: mybatis-basics
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 13:58:41.049
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 13:58:41.056
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-08-27 16:13:02.079
+!MESSAGE Classpath changed for project: mybatis-basics
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 16:13:02.465
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 16:13:02.481
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 16:13:10.098
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 16:13:10.102
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-08-27 16:13:10.347
+!MESSAGE Classpath changed for project: mybatis-basics
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-08-27 16:13:10.399
+!MESSAGE Classpath changed for project: mybatis-basics
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-08-27 16:13:11.299
+!MESSAGE Classpath changed for project: mybatis-basics
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 16:13:11.410
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 16:13:11.414
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 16:19:35.645
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 16:19:35.649
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-08-27 16:19:36.225
+!MESSAGE Classpath changed for project: mybatis-basics
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 16:19:36.965
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 16:19:36.968
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-08-27 16:19:44.332
+!MESSAGE Classpath changed for project: mybatis-basics
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 16:19:44.476
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-08-27 16:19:44.480
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
