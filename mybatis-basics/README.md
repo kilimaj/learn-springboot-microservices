@@ -54,9 +54,11 @@ java -jar qualified-name-of-h2-package
 - Change Saved settings to: Generic H2 (Server)
 - Go to your computer user folder and create the mybatis-basics.mv.db
 - Then paste the following in the JDBC URL: on the H2 interface
+
 ```
 jdbc:h2:tcp://localhost/~/mybatis-basics
 ```
+
 - Test The connection and if works then connect
 - Use the following SQL tests and paste in the H2 SQL editor to test.
 - Just some SQL tests
@@ -80,15 +82,19 @@ insert into customers (name, email, phone) values ('John', 'john@john.co', '1234
 ```sql
 select * from customers;
 ```
+
 **Alternatively**
+
 - You can run the script from a file made in the SQL editor paste
+
 ```
 runscript from '~/eclipse-workspace/mybatis-basics/customers.sql'
 ```
 
 ## Lombok
+
 - If using eclipse make sure to run this in terminal to install lombok
-  
+
 ```bash
 java -jar qualified-name-of-lombok-package
 ```
@@ -105,3 +111,38 @@ java -jar qualified-name-of-lombok-package
 - @Setter
 - @ToString
 - @EqualsAndHashCode
+
+## Configuring MyBatis
+
+- create an xml config file in resources folder
+- example mybatis-config.xml
+- paste the following
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="" />
+				<property name="url" value="" />
+				<property name="username" value="" />
+				<property name="password" value="" />
+			</dataSource>
+		</environment>
+	</environments>
+</configuration>
+```
+
+- edit the driver, url, username and password values accordingly
+- Then after environments tag add mappers that links to **DAO** interface
+
+```xml
+<mappers>
+	<mapper class="dev.kilima.mybatis.dao.CustomerDao" />
+</mappers>
+```
