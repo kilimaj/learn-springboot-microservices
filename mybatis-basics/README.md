@@ -85,3 +85,23 @@ select * from customers;
 ```
 runscript from '~/eclipse-workspace/mybatis-basics/customers.sql'
 ```
+
+## Lombok
+- If using eclipse make sure to run this in terminal to install lombok
+  
+```bash
+java -jar qualified-name-of-lombok-package
+```
+
+- @Data annotation
+  - This annotation covers:
+    - getters
+    - setters
+    - toString
+    - hash equals
+- But can also use individual annotations instead of @Data which includes all
+- @NoArgsConstructor
+- @Getter
+- @Setter
+- @ToString
+- @EqualsAndHashCode
