@@ -19,7 +19,7 @@ public final class DaoFactory {
 		InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
 		// Creates an SQL Session
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(is);
-		SqlSession session = factory.openSession();
+		SqlSession session = factory.openSession(true);
 
 		return session.getMapper(CustomerDao.class);
 	}
