@@ -12,10 +12,10 @@ public class AddNewCustomer {
 		CustomerDao dao = DaoFactory.getCustomerDao();
 
 		CustomersLombok c1 = new CustomersLombok();
-		c1.setName("Satya");
+		c1.setName("JBK");
 		c1.setCity("Bombay");
-		c1.setEmail("satya@gmail.com");
-		c1.setPhone("129056789");
+		c1.setEmail("jbk@gmail.com");
+		c1.setPhone("457192");
 
 		dao.addCustomer(c1);
 
