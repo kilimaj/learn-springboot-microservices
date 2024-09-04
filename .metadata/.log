@@ -1409,3 +1409,12 @@ java.lang.NoSuchFieldError: Class com.google.javascript.jscomp.parsing.parser.Pa
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2024-09-04 14:17:19.325
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-09-04 16:20:15.154
+!MESSAGE Classpath changed for project: servlet-demo
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-09-04 16:20:16.036
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-09-04 16:20:16.058
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
