@@ -12,12 +12,4 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
-	<servlet>
-		<servlet-name>s1</servlet-name>
-		<servlet-class>dev.kilima.servlet.HelloServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>s1</servlet-name>
-		<url-pattern>/hello</url-pattern>
-	</servlet-mapping>
 </web-app>
