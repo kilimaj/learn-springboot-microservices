@@ -3,6 +3,7 @@ package dev.kilima.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,12 +21,14 @@ public class TableServlet extends HttpServlet {
 		if(input==null) {
 			response.sendRedirect("table.html");
 			return;
-		}
-		
-		
+		}	
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		
+		RequestDispatcher rd = request.getRequestDispatcher("table.html");
+		rd.include(request, response);
+		
 		try {
 			int num = Integer.parseInt(input);
 			out.println("<h3>Table for " + num + ": </h3>");
