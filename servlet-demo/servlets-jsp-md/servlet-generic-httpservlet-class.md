@@ -52,6 +52,7 @@ void doOptions(HttpServletRequest, HttpServletResponse)
 ```
 
 # MIME type
+
 - Multipurpose Internet Mail Extension
 - This is set before sending any response
 - Describes format of data is it binary data like pdf, html, csv
@@ -59,6 +60,7 @@ void doOptions(HttpServletRequest, HttpServletResponse)
 ```java
 response.setContentType("text/html")
 ```
+
 - Both character and binary streams are available
 - Text content ==> Character stream
 - response.getWriter() -> PrintWriter
