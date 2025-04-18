@@ -1,12 +1,13 @@
 package dev.kilima.mybatis.entity;
 
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-//@Data 
+@Data
 @NoArgsConstructor
 @Getter
 @Setter
