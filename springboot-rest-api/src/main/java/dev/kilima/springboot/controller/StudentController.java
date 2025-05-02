@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.kilima.springboot.bean.Student;
@@ -21,21 +21,22 @@ public class StudentController {
 
 	// http://localhost:8080/student
 	@GetMapping("/student")
-	public Student getStudent() {
+	public ResponseEntity<Student> getStudent() {
 		Student student = new Student(1, "John", "Kilima");
-		return student;
+		//return new ResponseEntity<>(student, HttpStatus.OK);
+		return ResponseEntity.ok().header("custom-header", "kilima").body(student);
 	}
 
 	// http://localhost:8080/students
 	@GetMapping("/students")
-	public List<Student> getStudents() {
+	public ResponseEntity<List<Student>> getStudents() {
 		List<Student> students = new ArrayList<>();
 		students.add(new Student(1, "John", "Kilima"));
 		students.add(new Student(2, "Mabula", "Kilima"));
 		students.add(new Student(3, "Barnabas", "Kilima"));
 		students.add(new Student(4, "Gabriel", "Kilima"));
    
-		return students;
+		return ResponseEntity.ok(students);
 	}
 
 	// Springboot Rest API with path variable
@@ -65,21 +66,22 @@ public class StudentController {
 	// http://localhost:8080/student-param?id=1&firstName=MAbula&lastName=Jean
 
 	@GetMapping("student-param")
-	public Student studentRequestVariable(@RequestParam int id, @RequestParam String firstName,
+	public ResponseEntity<Student> studentRequestVariable(@RequestParam int id, @RequestParam String firstName,
 			@RequestParam String lastName) {
-		return new Student(id, firstName, lastName);
+		Student student = new Student(id, firstName, lastName);
+		return ResponseEntity.ok(student);
 	}
 
 	// Spring boot REST API handles HTTP POST Request
 	// @PostMapping and @RequestBody This is used to retrieve json from http request
 	// format and convert to java object
 	@PostMapping("students/create")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Student createStudent(@RequestBody Student student) {
+	// @ResponseStatus(HttpStatus.CREATED)
+	public ResponseEntity<Student> createStudent(@RequestBody Student student) {
 		System.out.println(student.getId());
 		System.out.println(student.getFirstName());
 		System.out.println(student.getLastName());
-		return student;
+		return new ResponseEntity<>(student, HttpStatus.CREATED);
 	}
 
 	// SpringBoot REST API that handles HTTP PUT Request - updating existing
@@ -91,12 +93,15 @@ public class StudentController {
 		return student;
 	}
 
-	// Spring Boot REST API that handles HTTP DELETE Request - deleting the existing
-	// resource
+	/*
+	 * Spring Boot REST API that handles HTTP DELETE Request - deleting the existing
+	 * resource
+	 */
 	@DeleteMapping("students/{id}/delete")
-	public String deleteStudent(@PathVariable("id") int studentId) {
+	public ResponseEntity<String> deleteStudent(@PathVariable("id") int studentId) {
 		System.out.println(studentId);
-		return "Student deleted successfully!";
+		return ResponseEntity.ok("Student deleted successfully!");
 	}
+
 
 }
