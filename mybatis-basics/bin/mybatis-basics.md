@@ -1,0 +1,178 @@
+# Mybatis Basics
+
+- Java Persistence framework
+- Dynamically implements JDBC code for your interface
+- Maps interface methods to actual SQL commands.
+- Examples:
+  | Method | SQL Statement | Mybatis Annotation|
+  |:-----------------:|:-----------------:|:-----------------:|
+  |addCustomer | INSERT | @Insert |
+  |getCustomerById | SELECT | @Select |
+  |updateCustomer | UPDATE | @Update |
+  |deleteCustomer | DELETE | @Delete |
+  |getAllCustomer | SELECT | @Select |
+  |getCustomersByCity | SELECT | @Select |
+
+- Java users all depends on the Mapper Interface example: **CustomerDao**
+- To obtain instance of this mapper we use mybatis as a factory
+- Mybatis reads information about db connectivity and Mapper interface from **mybatis-config.xml** file
+- Mybatis will create a class on the fly during the runtime that implements the Mapper interface then our application gets an instance of this class
+- The implementation class created by mybatis uses **JDBC** to connect to the underlying database
+
+  ![Java application mybatis operations](../images/mybatis-basics.drawio.svg)
+
+## Difference between MyBatis and ORM such as Hibernate, JPA ect..
+
+- No need to map class/fields to table/columns
+- Automatically detects column names and maps to fields of a class
+- Allow use of all Database functionalities such as
+  - Stored procedures
+  - views
+  - Queries of any complexity
+  - and Vendor proprietary features
+- Good choice for:
+  - Legacy systems
+  - De-normalized databases
+  - Need full SQL execution control in your Java Application
+- Supports caching
+  - Statements can be cached
+  - Avoid unnecessary DB round trips
+  - Provides a default cache implementation - Based on Java HashMap
+  - Default connectors for integrating with OSCache, Ehcache, Hazelcast and Memcached
+  - Provides an API to plug other cache implementations
+
+## Setting up project with H2 Database for testing
+
+- copy qualified name of h2 jar package in maven dependencies
+- open terminal and run
+
+```bash
+java -jar qualified-name-of-h2-package
+```
+
+- After the H2 interface opens
+- Change Saved settings to: Generic H2 (Server)
+- Go to your computer user folder and create the mybatis-basics.mv.db
+- Then paste the following in the JDBC URL: on the H2 interface
+
+```
+jdbc:h2:tcp://localhost/~/mybatis-basics
+```
+
+- Test The connection and if works then connect
+- Use the following SQL tests and paste in the H2 SQL editor to test.
+- Just some SQL tests
+
+```sql
+create table customers (
+	id int primary key auto_increment,
+	name varchar(100) not null,
+	city varchar(100) default 'Bangalore',
+	email varchar(255) unique,
+	phone varchar(255) unique
+	);
+```
+
+```sql
+insert into customers (name, email, phone) values ('John', 'john@john.co', '123456789'),
+('Juma', 'juma@juma.co', '4357853289'), ('Hellen', 'hellen@john.co', '655443331'),
+('Glad', 'glad@john.co', '12782666789');
+```
+
+```sql
+select * from customers;
+```
+
+**Alternatively**
+
+- You can run the script from a file made in the SQL editor paste
+
+```
+runscript from '~/eclipse-workspace/mybatis-basics/customers.sql'
+```
+
+## Lombok
+
+- If using eclipse make sure to run this in terminal to install lombok
+
+```bash
+java -jar qualified-name-of-lombok-package
+```
+
+- @Data annotation
+  - This annotation covers:
+    - getters
+    - setters
+    - toString
+    - hash equals
+- But can also use individual annotations instead of @Data which includes all
+- @NoArgsConstructor
+- @Getter
+- @Setter
+- @ToString
+- @EqualsAndHashCode
+
+## Configuring MyBatis
+
+- create an xml config file in resources folder
+- example mybatis-config.xml
+- paste the following
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="" />
+				<property name="url" value="" />
+				<property name="username" value="" />
+				<property name="password" value="" />
+			</dataSource>
+		</environment>
+	</environments>
+</configuration>
+```
+
+- edit the driver, url, username and password values accordingly
+- Then after environments tag add mappers that links to **DAO** interface
+
+```xml
+<mappers>
+	<mapper class="dev.kilima.mybatis.dao.CustomerDao" />
+</mappers>
+```
+
+## MyBatis Option: 1 using Annotations in Dao file
+
+- This option lets you use annotations within a Dao file making use of SQL Queries on top of the crud operations
+- **@Insert** : this is the create operation query
+- **@Options** : This allows to pass multiple options in a query for example:
+
+```java
+@Options(useGeneratedKeys = true, keyProperty = "id")
+```
+
+- The above copies the autoincrement of id field following the rules from DB.
+- This was necessary because without it then we would be getting id as null. Since its not generated by default.
+
+- **Update** for update operations
+- **@Delete** For Delete operation
+- **@Select** For Read operation
+
+## DaoFactory
+
+- This is a class that provides an objects of Dao types from the interface
+- We will not write an implementation of the interface since **MyBatis** provides it dynamically
+- This class is final, not inherited and has a private constructor hence will mot allow to create an object of DaoFactory
+- If we wanted to create an object it could be either through the constructor or inherited through subclass but now its impossible.
+- Now creates an input stream to read the config xml file
+- Adding the true option allows it to commit changes to database
+
+```java
+SqlSession session = factory.openSession(true);
+```
